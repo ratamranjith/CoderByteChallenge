@@ -32,10 +32,31 @@ def alphabet_soup_with_quicksort(strValue):
     return "".join(quick_sort(strValue))  # call the quick sort function here
 
 
+def alphabet_soup_using_ascii_chr(strValue):
+
+    if len(strValue) <= 1:
+        return strValue
+    ascii = []
+    char = ""
+    for i in strValue:
+        ascii.append(ord(i))
+    sortedValue = quick_sort(ascii)
+    for value in sortedValue:
+        char += chr(value)
+    return char
+
+
+def alphabet_soup_lambda(strValue):
+
+    if len(strValue) <= 1:
+        return strValue
+    return "".join(sorted(strValue, key=lambda x: x.lower()))
+
+
 # Test the function
 print(alphabet_soup_with_sorted("dcba"))
 print(alphabet_soup_with_sorted("hello"))
 print(alphabet_soup_with_sorted("python"))
-
-
 print(alphabet_soup_with_quicksort("hello"))
+print(alphabet_soup_using_ascii_chr("world"))
+print(alphabet_soup_lambda("truder"))
